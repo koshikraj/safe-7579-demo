@@ -77,6 +77,7 @@ describe('Safe7579 - Basic tests', () => {
       await execSafeTransaction(safe, await safe7579.initializeAccount.populateTransaction([], [], [], [], {registry: ZeroAddress, attesters: [], threshold: 0}));
 
       await execSafeTransaction(safe, await safe7579.installModule.populateTransaction(1, await mockValidator.getAddress(), utils.defaultAbiCoder.encode(['address'], [user1.address])))
+      
       const key = BigInt(pad(await mockValidator.getAddress() as Hex, {
           dir: "right",
           size: 24,
@@ -85,11 +86,7 @@ describe('Safe7579 - Basic tests', () => {
       const currentNonce = await entryPoint.getNonce(await safe.getAddress(), key);
 
 
-      let userOp = buildUnsignedUserOpTransaction(await safe.getAddress(), currentNonce)
-      
-      const callData =  encodeUserOpCallData({actions: [call]})
-
-      userOp.callData =callData;
+      let userOp = buildUnsignedUserOpTransaction(await safe.getAddress(), currentNonce, call)
 
       await logGas('Execute UserOp without a prefund payment', entryPoint.handleOps([userOp], relayer))
       expect(await ethers.provider.getBalance(await safe.getAddress())).to.be.eq(ethers.parseEther('0'))
@@ -118,11 +115,7 @@ describe('Safe7579 - Basic tests', () => {
       const currentNonce = await entryPoint.getNonce(await safe.getAddress(), key);
 
 
-      let userOp = buildUnsignedUserOpTransaction(await safe.getAddress(), currentNonce)
-      
-      const callData =  encodeUserOpCallData({actions: [call]})
-
-      userOp.callData =callData;
+      let userOp = buildUnsignedUserOpTransaction(await safe.getAddress(), currentNonce, call)
 
       const typedDataHash = ethers.getBytes(await entryPoint.getUserOpHash(userOp))
       userOp.signature = await user1.signMessage(typedDataHash)
@@ -160,11 +153,8 @@ describe('Safe7579 - Basic tests', () => {
       const currentNonce = await entryPoint.getNonce(await safe.getAddress(), key);
 
 
-      let userOp = buildUnsignedUserOpTransaction(await safe.getAddress(), currentNonce)
+      let userOp = buildUnsignedUserOpTransaction(await safe.getAddress(), currentNonce, call)
       
-      const callData =  encodeUserOpCallData({actions: [call]})
-
-      userOp.callData =callData;
 
       const typedDataHash = ethers.getBytes(await entryPoint.getUserOpHash(userOp))
       userOp.signature = await user1.signMessage(typedDataHash)

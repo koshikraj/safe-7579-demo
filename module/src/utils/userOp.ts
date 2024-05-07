@@ -29,9 +29,16 @@ export type SafeUserOperation = {
 
 
   export type Call = {
-    target: string
+    target: Hex
     value: BigNumberish
     data: string
+
+  }
+
+  export type Action = {
+    target: Hex
+    value: BigNumberish
+    callData: Hex
 
   }
 
@@ -196,13 +203,16 @@ export function encodeUserOpCallData({
 export const buildUnsignedUserOpTransaction = (
   from: string,
   nonce: BigNumberish,
+  action: Action
 ): PackedUserOperation => {
+
+  const callData =  encodeUserOpCallData({actions: [action]})
 
   return {
     sender: from,
     nonce: ethers.toBeHex(nonce),
     initCode: '0x',
-    callData: ethers.hexlify('0x'),
+    callData: callData,
     preVerificationGas: ethers.toBeHex(60000),
     ...packGasParameters({
       verificationGasLimit: 500000,

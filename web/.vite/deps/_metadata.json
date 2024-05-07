@@ -1,0 +1,221 @@
+{
+  "hash": "2b306952",
+  "browserHash": "08a6ca14",
+  "optimized": {
+    "buffer": {
+      "src": "../../node_modules/buffer/index.js",
+      "file": "buffer.js",
+      "fileHash": "acfbefbd",
+      "needsInterop": true
+    },
+    "process": {
+      "src": "../../node_modules/process/browser.js",
+      "file": "process.js",
+      "fileHash": "1bc7e7f0",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "ac7c690e",
+      "needsInterop": true
+    },
+    "@mantine/core": {
+      "src": "../../node_modules/@mantine/core/esm/index.mjs",
+      "file": "@mantine_core.js",
+      "fileHash": "6066ee76",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "ffbada48",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "3f456114",
+      "needsInterop": true
+    },
+    "styled-components": {
+      "src": "../../node_modules/styled-components/dist/styled-components.browser.esm.js",
+      "file": "styled-components.js",
+      "fileHash": "94c92e1d",
+      "needsInterop": false
+    },
+    "@tabler/icons": {
+      "src": "../../node_modules/@tabler/icons/icons-react/dist/index.esm.js",
+      "file": "@tabler_icons.js",
+      "fileHash": "a14a05c5",
+      "needsInterop": false
+    },
+    "@mantine/hooks": {
+      "src": "../../node_modules/@mantine/hooks/esm/index.mjs",
+      "file": "@mantine_hooks.js",
+      "fileHash": "9ad4981f",
+      "needsInterop": false
+    },
+    "@mantine/dates": {
+      "src": "../../node_modules/@mantine/dates/esm/index.mjs",
+      "file": "@mantine_dates.js",
+      "fileHash": "32a06043",
+      "needsInterop": false
+    },
+    "ethers": {
+      "src": "../../node_modules/ethers/lib.esm/index.js",
+      "file": "ethers.js",
+      "fileHash": "1a25ef93",
+      "needsInterop": false
+    },
+    "react-copy-to-clipboard": {
+      "src": "../../node_modules/react-copy-to-clipboard/lib/index.js",
+      "file": "react-copy-to-clipboard.js",
+      "fileHash": "782d81b6",
+      "needsInterop": true
+    },
+    "viem": {
+      "src": "../../node_modules/viem/_esm/index.js",
+      "file": "viem.js",
+      "fileHash": "c0228c7e",
+      "needsInterop": false
+    },
+    "@tabler/icons-react": {
+      "src": "../../node_modules/@tabler/icons-react/dist/esm/tabler-icons-react.js",
+      "file": "@tabler_icons-react.js",
+      "fileHash": "2f5a0799",
+      "needsInterop": false
+    },
+    "zustand": {
+      "src": "../../node_modules/zustand/esm/index.mjs",
+      "file": "zustand.js",
+      "fileHash": "94098456",
+      "needsInterop": false
+    },
+    "ethersv5": {
+      "src": "../../node_modules/ethersv5/lib.esm/index.js",
+      "file": "ethersv5.js",
+      "fileHash": "1e0c13da",
+      "needsInterop": false
+    },
+    "viem/chains": {
+      "src": "../../node_modules/viem/_esm/chains/index.js",
+      "file": "viem_chains.js",
+      "fileHash": "c81eac3c",
+      "needsInterop": false
+    },
+    "permissionless": {
+      "src": "../../node_modules/permissionless/_esm/index.js",
+      "file": "permissionless.js",
+      "fileHash": "4786c51e",
+      "needsInterop": false
+    },
+    "permissionless/clients/pimlico": {
+      "src": "../../node_modules/permissionless/_esm/clients/pimlico.js",
+      "file": "permissionless_clients_pimlico.js",
+      "fileHash": "dd89354a",
+      "needsInterop": false
+    },
+    "permissionless/actions/pimlico": {
+      "src": "../../node_modules/permissionless/_esm/actions/pimlico.js",
+      "file": "permissionless_actions_pimlico.js",
+      "fileHash": "94c4dabc",
+      "needsInterop": false
+    },
+    "@safe-global/safe-apps-sdk": {
+      "src": "../../node_modules/@safe-global/safe-apps-sdk/dist/src/index.js",
+      "file": "@safe-global_safe-apps-sdk.js",
+      "fileHash": "8cd45b61",
+      "needsInterop": true
+    },
+    "@safe-global/safe-apps-provider": {
+      "src": "../../node_modules/@safe-global/safe-apps-provider/dist/index.js",
+      "file": "@safe-global_safe-apps-provider.js",
+      "fileHash": "0504a705",
+      "needsInterop": true
+    },
+    "@turnkey/webauthn-stamper": {
+      "src": "../../node_modules/@turnkey/webauthn-stamper/dist/index.mjs",
+      "file": "@turnkey_webauthn-stamper.js",
+      "fileHash": "dbafb76a",
+      "needsInterop": false
+    },
+    "@turnkey/http": {
+      "src": "../../node_modules/@turnkey/http/dist/index.mjs",
+      "file": "@turnkey_http.js",
+      "fileHash": "927962b2",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "ccip-P2OIXEGD": {
+      "file": "ccip-P2OIXEGD.js"
+    },
+    "native-5DDDFS4V": {
+      "file": "native-5DDDFS4V.js"
+    },
+    "secp256k1-IS7FLSXJ": {
+      "file": "secp256k1-IS7FLSXJ.js"
+    },
+    "webcrypto-JYR3RTUB": {
+      "file": "webcrypto-JYR3RTUB.js"
+    },
+    "nodecrypto-IUU3T7VI": {
+      "file": "nodecrypto-IUU3T7VI.js"
+    },
+    "chunk-32UEECII": {
+      "file": "chunk-32UEECII.js"
+    },
+    "chunk-YJJSOPWD": {
+      "file": "chunk-YJJSOPWD.js"
+    },
+    "chunk-7L37OE6G": {
+      "file": "chunk-7L37OE6G.js"
+    },
+    "chunk-2MGAMVRS": {
+      "file": "chunk-2MGAMVRS.js"
+    },
+    "chunk-UG6EL7T5": {
+      "file": "chunk-UG6EL7T5.js"
+    },
+    "chunk-6QAH7EPR": {
+      "file": "chunk-6QAH7EPR.js"
+    },
+    "chunk-LYDXG5YA": {
+      "file": "chunk-LYDXG5YA.js"
+    },
+    "chunk-EUBNUXNN": {
+      "file": "chunk-EUBNUXNN.js"
+    },
+    "chunk-NY2Q42KW": {
+      "file": "chunk-NY2Q42KW.js"
+    },
+    "chunk-LU3NF5RD": {
+      "file": "chunk-LU3NF5RD.js"
+    },
+    "chunk-ABLC2WDW": {
+      "file": "chunk-ABLC2WDW.js"
+    },
+    "chunk-6RVCBVTV": {
+      "file": "chunk-6RVCBVTV.js"
+    },
+    "chunk-2CSGMQ4Z": {
+      "file": "chunk-2CSGMQ4Z.js"
+    },
+    "chunk-2I7PVGSB": {
+      "file": "chunk-2I7PVGSB.js"
+    },
+    "chunk-7EJ2HHV3": {
+      "file": "chunk-7EJ2HHV3.js"
+    },
+    "chunk-6EEL643C": {
+      "file": "chunk-6EEL643C.js"
+    },
+    "chunk-XCERESLX": {
+      "file": "chunk-XCERESLX.js"
+    },
+    "chunk-J32WSRGE": {
+      "file": "chunk-J32WSRGE.js"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../node_modules/@turnkey/api-key-stamper/src/nodecrypto.ts"],
+  "sourcesContent": [null],
+  "mappings": ";;;;;;;;;;;;IAGa,iBAAiB,OAAO,UAIf;AACpB,QAAM,EAAE,SAAS,WAAW,WAAU,IAAK;AAE3C,QAAM,mBAA0B,wBAAiB;;;IAG/C,KAAK,0BAA0B;MAC7B,2BAA2B;MAC3B,wBAAwB;KACzB;IACD,QAAQ;EACT,CAAA;AAED,QAAM,OAAc,kBAAW,QAAQ;AACvC,OAAK,MAAM,OAAO,KAAK,OAAO,CAAC;AAC/B,OAAK,IAAG;AAER,SAAO,KAAK,KAAK,kBAAkB,KAAK;AAC1C;",
+  "names": []
+}
