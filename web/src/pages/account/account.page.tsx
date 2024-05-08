@@ -13,7 +13,7 @@ import { getIconForId, getTokenInfo, getTokenList, tokenList } from '@/logic/tok
 import { getJsonRpcProvider } from '@/logic/web3';
 
 import {usePrivy, useWallets} from '@privy-io/react-auth';
-import { sendTransaction } from '@/logic/module';
+import { sendTransaction, waitForExecution } from '@/logic/module';
 import { EIP1193Provider, createWalletClient, custom } from 'viem';
 import { sepolia } from 'viem/chains';
 import { loadAccountInfo, storeAccountInfo } from '@/utils/storage';
@@ -32,7 +32,7 @@ export const AccountPage = () => {
 
    const { wallets, ready} = useWallets();
   
-  const { claimDetails, setClaimDetails} = useLinkStore((state: any) => state);
+  const { claimDetails, setClaimDetails, setConfirming, confirming} = useLinkStore((state: any) => state);
   const [ balance, setBalance ] = useState<any>(0);
   const [opened, { open, close }] = useDisclosure(false);
   const [sendModal, setSendModal] = useState(false);
@@ -169,8 +169,14 @@ export const AccountPage = () => {
     const result = await sendTransaction(chainId.toString(), toAddress, parseAmount, walletProvider)
     if (!result)
     setSendSuccess(false);
-    else
+    else {
     setSendSuccess(true);
+    setSendModal(false);
+    setConfirming(true);
+    await waitForExecution(result);
+    setConfirming(false);
+
+    }
     
     
   } catch(e) {
@@ -180,25 +186,6 @@ export const AccountPage = () => {
   setSendLoader(false);
 
   }
-
-
-  async function connectAccount() {
-
-
-    login();
-    console.log(authenticated)
-
-
-  //  const wallet =  connectWallet();
-
-
-   console.log(wallets)
-   
-
-
-  }
-
-
 
 
 
@@ -248,7 +235,7 @@ export const AccountPage = () => {
 
       
     })();
-  }, [claimDetails.account, chainId, sendSuccess, value, authenticated, ready]);
+  }, [claimDetails.account, chainId, sendSuccess, value, authenticated, ready, confirming]);
 
 
   
@@ -507,7 +494,8 @@ export const AccountPage = () => {
               fullWidth
               color="green"
               className={classes.btn}
-              onClick={() => sendAsset()}
+              onClick={async () => 
+                await sendAsset()}
               loaderProps={{ color: 'white', type: 'dots', size: 'md' }}
               loading={sendLoader}
             >

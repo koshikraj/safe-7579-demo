@@ -81,7 +81,7 @@ export const Head = (props) => {
                 onClick={() => {
                   navigate(RoutePath.home);
                 }}
-                style={{ cursor: 'pointer', width: '210px' }}
+                style={{ cursor: 'pointer', width: '220px' }}
                 src={dark ? LogoDark : LogoLight}
                 alt="Logo"
               />

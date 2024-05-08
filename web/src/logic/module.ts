@@ -74,12 +74,6 @@ export const sendTransaction = async (chainId: string, recipient: string, amount
 
     const safeAccount = loadAccountInfo().address
 
-    console.log(safeAccount)
-
-
-    console.log(walletProvider)
-
-
      const walletClient = createWalletClient({
         chain: sepolia,
         transport: custom(walletProvider),
@@ -163,9 +157,8 @@ export const sendTransaction = async (chainId: string, recipient: string, amount
     let typedDataHash = getBytes(await entryPoint.getUserOpHash(getPackedUserOperation(sponsoredUserOperation)))
 
  
-    sponsoredUserOperation.signature = await walletClient.signMessage({account: '0x958543756A4c7AC6fB361f0efBfeCD98E4D297Db' , message:  { raw: typedDataHash}}) as `0x${string}`
+    sponsoredUserOperation.signature = await walletClient.signMessage({account: walletProvider.address , message:  { raw: typedDataHash}}) as `0x${string}`
 
-    console.log(sponsoredUserOperation)
 
     const userOperationHash = await bundlerClient.sendUserOperation({
         userOperation: sponsoredUserOperation,

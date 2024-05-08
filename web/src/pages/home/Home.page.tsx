@@ -1,65 +1,47 @@
 import { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import {
-  Avatar,
-  Badge,
   Button,
-  Text,
   Group,
   Input,
   Paper,
-  Select,
   useMantineColorScheme,
-  Combobox,
-  useCombobox,
-  InputBase,
   Anchor,
   Alert,
   TextInput,
 } from '@mantine/core';
 import classes from './Home.module.css';
-import ETHIndia from '../../assets/images/ethindia.svg';
 import Safe from '../../assets/images/safe.svg';
 
 import { NetworkUtil } from '../../logic/networks';
 import { useDisclosure } from '@mantine/hooks';
-import { DateTimePicker } from '@mantine/dates';
 import {  addValidatorModule } from '../../logic/module';
-import { ZeroAddress } from 'ethers';
 
-import Confetti from 'react-confetti';
-import { IconBrandGithub, IconCoin} from '@tabler/icons';
+import { IconBrandGithub} from '@tabler/icons';
 
 
 import { useNavigate } from 'react-router-dom';
 import { getProvider } from '@/logic/web3';
-import { getIconForId, getTokenInfo, getTokenList, tokenList } from '@/logic/tokens';
+import {tokenList } from '@/logic/tokens';
 
-import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { getSafeInfo } from '@/logic/safeapp';
-import { formatTime, getTokenBalance } from '@/logic/utils';
-import { formatEther } from 'viem';
-import { IconBrandTwitterFilled, IconBrandX } from '@tabler/icons-react';
+
+import { IconBrandX } from '@tabler/icons-react';
 import { RoutePath } from '@/navigation/route-path';
 
 
 
 function HomePage() {
-  const [opened, { open, close }] = useDisclosure(false);
+
   const navigate = useNavigate();
   
-
-
   const { colorScheme } = useMantineColorScheme();
 
   const dark = colorScheme === 'dark';
 
-  const [ownerAddress, setOwnerAddress] = useState<string>("0x0000000000000000000000000000000000000000");
+  const [ownerAddress, setOwnerAddress] = useState<string>("");
   const [network, setNetwork] = useState('');
   const [chainId, setChainId] = useState(5);
 
-  const [sessionCreated, setSessionCreated] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const [sessionKey, setSessionKey] = useState({address: '', privateKey: ''});
+  const [ownerAdded, setOwnerAdded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [safeError, setSafeError] = useState(false);
 
@@ -79,7 +61,7 @@ function HomePage() {
       setIsLoading(false);
       setSafeError(true);
     }
-    setSessionCreated(true);
+    setOwnerAdded(true);
   };
 
 
@@ -102,9 +84,7 @@ function HomePage() {
 
   return (
     <>
-
             <div>      
-
             <h1 className={classes.heading}>External validator for your
             <div className={classes.safeContainer}>
             <img
@@ -113,51 +93,26 @@ function HomePage() {
             alt="avatar"
             />
             </div>
-
-
             </h1>
-
             </div>
-      { sessionCreated && !safeError? (
+      { ownerAdded && !safeError ? (
         <>
           <div className={classes.successContainer}>
             <Paper className={classes.formContainer} shadow="md" withBorder radius="md" >
-              <h1 className={classes.heading}>Session Key is Ready!</h1>
+              <h1 className={classes.heading}>YOu are all set!</h1>
 
               <p className={classes.subheading} style={{ textAlign: 'center' }}>
                 
-               This session key is like a magic wand. Check out the magic <Anchor onClick={() => navigate(RoutePath.account)}>here </Anchor> ❤️ ❤️
+              Check out the magic of Safe validator <Anchor target='_blank' href={"#" + RoutePath.account} >here </Anchor> ❤️ ❤️
               </p>
-
-              <div className={classes.copyContainer}>
-                <Input
-                  className={classes.input}
-                  // style={{ width: '400px' }}
-                  value={sessionKey.privateKey}
-                  placeholder={sessionKey.privateKey}
-                />
-            
-              </div>
               <div className={classes.actions}>
-            
             <Button size="lg" radius="md"
-              onClick={() => setSessionCreated(false)}
+              onClick={() => setOwnerAdded(false)}
              style={{ width: '180px' }}        
                 color={ dark ? "#49494f" : "#c3c3c3" } 
                 variant={ "filled" } 
-               >Create New</Button>
-               <CopyToClipboard text={sessionKey.privateKey}
-                onCopy={() => setCopied(true)}>
-          <Button size="lg" radius="md" style={{ width: '180px' }}  color="teal">
-          {copied ? 'Key Copied' : 'Copy Key'}
-            </Button>
-            </CopyToClipboard >
+               >Home</Button>
           </div>
-              {/* <div className={classes.goBack}>
-                <Button variant="primary" onClick={() => setSharableLink('')}>
-                  Create new Link
-                </Button>
-              </div> */}
             </Paper>
           </div>
         </>
@@ -224,7 +179,7 @@ function HomePage() {
               loaderProps={{ color: 'white', type: 'dots', size: 'md' }}
               loading={isLoading}
             >
-              {isLoading ? 'Creating Link ...' : 'Create Session'}
+              {isLoading ? 'Adding Owner ...' : 'Add Owner'}
             </Button>
             <br/>
 
